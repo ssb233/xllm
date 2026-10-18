@@ -1,0 +1,4046 @@
+{
+  "schema_version": 1,
+  "analysis_date": "2026-10-16",
+  "xllm_commit": "4b05c484a34b12619c5ec536aceb62ab0c53e4db",
+  "brpc_commit": "67d6372a340cb0663efcd3fda6f4c5e188bf5c24",
+  "scope": "Public metric families defined in xllm/core/common/metrics.cpp; static C/C++ symbol and macro scan under xllm/",
+  "family_count": 129,
+  "family_counts_by_macro_type": {
+    "COUNTER": 71,
+    "GAUGE": 25,
+    "HISTOGRAM": 24,
+    "MULTI_COUNTER": 1,
+    "MULTI_GAUGE": 1,
+    "MULTI_HISTOGRAM": 7
+  },
+  "scan_file_count": 1830,
+  "notes": [
+    "Static reference index, not a runtime accuracy or reachability verdict.",
+    "Sites are one-based and relative to the repository root at the recorded commits.",
+    "Write-macro searches retain updates inside metrics.cpp; explicit symbols expose indirect cached-handle writes.",
+    "Descriptions are source intent, not verified contracts; time units, observation objects and coverage require boundary analysis.",
+    "The pinned exporter emits custom numeric metrics as gauge; only rpc_server-prefixed recorders are assembled into summaries.",
+    "MultiDimension dimensions are flattened into metric names in this pinned fork, not Prometheus labels.",
+    "Recorder names include configured percentile suffixes; latency_scale_factor applies to every recorder observation.",
+    "One family may create many exported subvariables or dimensions; family_count is not exported-series count."
+  ],
+  "metrics": [
+    {
+      "name": "request_status_total_ok",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 22
+      },
+      "source_description": "Total number of request status OK",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/request/dit_request_output.cpp",
+          "line": 31,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/framework/request/request_output.cpp",
+          "line": 31,
+          "macro": "COUNTER_INC"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "request_status_total_ok"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "request_status_total_cancelled",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 23
+      },
+      "source_description": "Total number of request status CANCELLED",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/request/dit_request_output.cpp",
+          "line": 34,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/framework/request/request_output.cpp",
+          "line": 34,
+          "macro": "COUNTER_INC"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "request_status_total_cancelled"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "request_status_total_unknown",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 25
+      },
+      "source_description": "Total number of request status UNKNOWN",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/request/dit_request_output.cpp",
+          "line": 37,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/framework/request/dit_request_output.cpp",
+          "line": 49,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/framework/request/request_output.cpp",
+          "line": 37,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/framework/request/request_output.cpp",
+          "line": 50,
+          "macro": "COUNTER_INC"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "request_status_total_unknown"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "request_status_total_invalid_argument",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 27
+      },
+      "source_description": "Total number of request status INVALID_ARGUMENT",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/request/dit_request_output.cpp",
+          "line": 40,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/framework/request/request_output.cpp",
+          "line": 40,
+          "macro": "COUNTER_INC"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "request_status_total_invalid_argument"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "request_status_total_deadline_exceeded",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 29
+      },
+      "source_description": "Total number of request status DEADLINE_EXCEEDED",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/request/dit_request_output.cpp",
+          "line": 43,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/framework/request/request_output.cpp",
+          "line": 43,
+          "macro": "COUNTER_INC"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "request_status_total_deadline_exceeded"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "request_status_total_resource_exhausted",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 31
+      },
+      "source_description": "Total number of request status RESOURCE_EXHAUSTED",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/request/dit_request_output.cpp",
+          "line": 46,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/framework/request/request_output.cpp",
+          "line": 47,
+          "macro": "COUNTER_INC"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "request_status_total_resource_exhausted"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "request_status_total_unauthenticated",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 33
+      },
+      "source_description": "Total number of request status UNAUTHENTICATED",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "no_write_macros_or_symbol_references_found",
+      "export_name_patterns": [
+        "request_status_total_unauthenticated"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "request_status_total_unavailable",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 35
+      },
+      "source_description": "Total number of request status UNAVAILABLE",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "no_write_macros_or_symbol_references_found",
+      "export_name_patterns": [
+        "request_status_total_unavailable"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "request_status_total_unimplemented",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 37
+      },
+      "source_description": "Total number of request status UNIMPLEMENTED",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "no_write_macros_or_symbol_references_found",
+      "export_name_patterns": [
+        "request_status_total_unimplemented"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "request_handling_latency_seconds_chat",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 40
+      },
+      "source_description": "Latency of chat request handling in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/distributed_runtime/llm_master.cpp",
+          "line": 497,
+          "macro": "AUTO_COUNTER"
+        },
+        {
+          "file": "xllm/core/distributed_runtime/vlm_master.cpp",
+          "line": 467,
+          "macro": "AUTO_COUNTER"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "request_handling_latency_seconds_chat"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "request_handling_latency_seconds_completion",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 42
+      },
+      "source_description": "Latency of completion request handling in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/distributed_runtime/dit_master.cpp",
+          "line": 122,
+          "macro": "AUTO_COUNTER"
+        },
+        {
+          "file": "xllm/core/distributed_runtime/llm_master.cpp",
+          "line": 451,
+          "macro": "AUTO_COUNTER"
+        },
+        {
+          "file": "xllm/core/distributed_runtime/rec_master.cpp",
+          "line": 351,
+          "macro": "AUTO_COUNTER"
+        },
+        {
+          "file": "xllm/core/distributed_runtime/vlm_master.cpp",
+          "line": 414,
+          "macro": "AUTO_COUNTER"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "request_handling_latency_seconds_completion"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "tokenization_latency_seconds",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 45
+      },
+      "source_description": "Prompt tokenization latency in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/request/llm_request_factory.cpp",
+          "line": 197,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/framework/request/rec_request_factory.cpp",
+          "line": 394,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/framework/request/rec_request_factory.cpp",
+          "line": 452,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/processors/multimodal_processor.cpp",
+          "line": 43,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "tokenization_latency_seconds"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "chat_template_latency_seconds",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 47
+      },
+      "source_description": "Chat template latency in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/distributed_runtime/rec_master.cpp",
+          "line": 301,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/framework/request/llm_request_factory.cpp",
+          "line": 533,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/framework/request/vlm_request_factory.cpp",
+          "line": 377,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "chat_template_latency_seconds"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "mm_input_loading_latency_milliseconds",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 51
+      },
+      "source_description": "Latency of multimodal input loading and decoding in milliseconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/request/vlm_request_factory.cpp",
+          "line": 324,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "mm_input_loading_latency_milliseconds_latency",
+        "mm_input_loading_latency_milliseconds_max_latency",
+        "mm_input_loading_latency_milliseconds_count",
+        "mm_input_loading_latency_milliseconds_qps",
+        "mm_input_loading_latency_milliseconds_latency_{bvar_latency_p1}",
+        "mm_input_loading_latency_milliseconds_latency_{bvar_latency_p2}",
+        "mm_input_loading_latency_milliseconds_latency_{bvar_latency_p3}",
+        "mm_input_loading_latency_milliseconds_latency_999",
+        "mm_input_loading_latency_milliseconds_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "mm_preprocess_latency_milliseconds",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 54
+      },
+      "source_description": "Latency of multimodal input preprocessing in milliseconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/request/vlm_request_factory.cpp",
+          "line": 337,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "mm_preprocess_latency_milliseconds_latency",
+        "mm_preprocess_latency_milliseconds_max_latency",
+        "mm_preprocess_latency_milliseconds_count",
+        "mm_preprocess_latency_milliseconds_qps",
+        "mm_preprocess_latency_milliseconds_latency_{bvar_latency_p1}",
+        "mm_preprocess_latency_milliseconds_latency_{bvar_latency_p2}",
+        "mm_preprocess_latency_milliseconds_latency_{bvar_latency_p3}",
+        "mm_preprocess_latency_milliseconds_latency_999",
+        "mm_preprocess_latency_milliseconds_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "encoder_cache_hit_rate",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 57
+      },
+      "source_description": "Histogram of encoder cache hit rate in percent",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/multimodal/mm_visitor.cpp",
+          "line": 464,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "encoder_cache_hit_rate_latency",
+        "encoder_cache_hit_rate_max_latency",
+        "encoder_cache_hit_rate_count",
+        "encoder_cache_hit_rate_qps",
+        "encoder_cache_hit_rate_latency_{bvar_latency_p1}",
+        "encoder_cache_hit_rate_latency_{bvar_latency_p2}",
+        "encoder_cache_hit_rate_latency_{bvar_latency_p3}",
+        "encoder_cache_hit_rate_latency_999",
+        "encoder_cache_hit_rate_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "prefix_cache_latency_seconds_insert",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 61
+      },
+      "source_description": "Latency of prefix cache insert in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/kv_cache/block/block_manager_impl.cpp",
+          "line": 195,
+          "macro": "AUTO_COUNTER"
+        },
+        {
+          "file": "xllm/core/kv_cache/block/block_manager_impl.cpp",
+          "line": 204,
+          "macro": "AUTO_COUNTER"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "prefix_cache_latency_seconds_insert"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "prefix_cache_latency_seconds_match",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 63
+      },
+      "source_description": "Latency of prefix cache match in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/kv_cache/block/block_manager_impl.cpp",
+          "line": 168,
+          "macro": "AUTO_COUNTER"
+        },
+        {
+          "file": "xllm/core/kv_cache/block/sliding_window_block_manager.cpp",
+          "line": 242,
+          "macro": "AUTO_COUNTER"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "prefix_cache_latency_seconds_match"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "prefix_cache_latency_seconds_evict",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 65
+      },
+      "source_description": "Latency of prefix cache evict in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/kv_cache/block/block_manager_impl.cpp",
+          "line": 145,
+          "macro": "AUTO_COUNTER"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "prefix_cache_latency_seconds_evict"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "prefix_cache_prompt_tokens_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 68
+      },
+      "source_description": "Process-cumulative prompt tokens for admitted requests",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/common/metrics.cpp",
+          "line": 93,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [
+        {
+          "file": "xllm/core/common/metrics.cpp",
+          "line": 95,
+          "macro": "COUNTER_VALUE"
+        }
+      ],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "prefix_cache_prompt_tokens_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "prefix_cache_hit_tokens_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 70
+      },
+      "source_description": "Process-cumulative prefix-cache hit tokens",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/common/metrics.cpp",
+          "line": 94,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [
+        {
+          "file": "xllm/core/common/metrics.cpp",
+          "line": 96,
+          "macro": "COUNTER_VALUE"
+        }
+      ],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "prefix_cache_hit_tokens_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "prefix_cache_token_hit_rate_perc",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 72
+      },
+      "source_description": "Process-cumulative prefix-cache token hit rate in percent",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/common/metrics.cpp",
+          "line": 97,
+          "macro": "GAUGE_SET"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "prefix_cache_token_hit_rate_perc"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "allocate_blocks_latency_seconds",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 75
+      },
+      "source_description": "Latency of blocks allocation in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/block/block_manager_pool.cpp",
+          "line": 198,
+          "macro": "AUTO_COUNTER"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "allocate_blocks_latency_seconds"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "detokenization_latency_seconds_stream",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 103
+      },
+      "source_description": "Latency of stream detokenization in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/request/onerec_sequence.cpp",
+          "line": 198,
+          "macro": "AUTO_COUNTER"
+        },
+        {
+          "file": "xllm/core/framework/request/sequence.cpp",
+          "line": 518,
+          "macro": "AUTO_COUNTER"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "detokenization_latency_seconds_stream"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "detokenization_latency_seconds_non_stream",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 105
+      },
+      "source_description": "Latency of non-stream detokenization in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/request/onerec_sequence.cpp",
+          "line": 206,
+          "macro": "AUTO_COUNTER"
+        },
+        {
+          "file": "xllm/core/framework/request/sequence.cpp",
+          "line": 677,
+          "macro": "AUTO_COUNTER"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "detokenization_latency_seconds_non_stream"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "num_model_execution_total_eager",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 109
+      },
+      "source_description": "Total number of model execution",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/runtime/acl_graph_executor_impl.cpp",
+          "line": 887,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/acl_graph_executor_impl.cpp",
+          "line": 1124,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/acl_graph_executor_impl.cpp",
+          "line": 1132,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/acl_graph_executor_impl.cpp",
+          "line": 1147,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/acl_graph_executor_impl.cpp",
+          "line": 1155,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/acl_graph_executor_impl.cpp",
+          "line": 1175,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/acl_graph_executor_impl.cpp",
+          "line": 1191,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/acl_graph_executor_impl.cpp",
+          "line": 1205,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/acl_graph_executor_impl.cpp",
+          "line": 1240,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/acl_graph_executor_impl.cpp",
+          "line": 1263,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/acl_graph_executor_impl.cpp",
+          "line": 1302,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/acl_graph_executor_impl.cpp",
+          "line": 1384,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/base_executor_impl.cpp",
+          "line": 34,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/cuda_graph_executor_impl.cpp",
+          "line": 1472,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/cuda_graph_executor_impl.cpp",
+          "line": 1545,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/cuda_graph_executor_impl.cpp",
+          "line": 1559,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/cuda_graph_executor_impl.cpp",
+          "line": 1630,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/dcu_graph_executor_impl.cpp",
+          "line": 975,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/dcu_graph_executor_impl.cpp",
+          "line": 1019,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/dcu_graph_executor_impl.cpp",
+          "line": 1035,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/dcu_graph_executor_impl.cpp",
+          "line": 1042,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/dcu_graph_executor_impl.cpp",
+          "line": 1052,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/dcu_graph_executor_impl.cpp",
+          "line": 1098,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/mlu_graph_executor_impl.cpp",
+          "line": 580,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/musa_graph_executor_impl.cpp",
+          "line": 1740,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/musa_graph_executor_impl.cpp",
+          "line": 1767,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/musa_graph_executor_impl.cpp",
+          "line": 1776,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/musa_graph_executor_impl.cpp",
+          "line": 1791,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/musa_graph_executor_impl.cpp",
+          "line": 1880,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/py_executor_impl.cpp",
+          "line": 468,
+          "macro": "COUNTER_INC"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "num_model_execution_total_eager"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "mooncake_transfer_completed_total_read",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 112
+      },
+      "source_description": "Total number of completed MoonCake READ transfers",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/transfer/mooncake_transfer_engine.cpp",
+          "line": 701,
+          "macro": "COUNTER_INC"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "mooncake_transfer_completed_total_read"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "mooncake_transfer_completed_total_write",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 114
+      },
+      "source_description": "Total number of completed MoonCake WRITE transfers",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/transfer/mooncake_transfer_engine.cpp",
+          "line": 706,
+          "macro": "COUNTER_INC"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "mooncake_transfer_completed_total_write"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "mooncake_transfer_bytes_total_read",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 116
+      },
+      "source_description": "Total bytes completed by MoonCake READ transfers",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/transfer/mooncake_transfer_engine.cpp",
+          "line": 702,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "mooncake_transfer_bytes_total_read"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "mooncake_transfer_bytes_total_write",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 118
+      },
+      "source_description": "Total bytes completed by MoonCake WRITE transfers",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/transfer/mooncake_transfer_engine.cpp",
+          "line": 707,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "mooncake_transfer_bytes_total_write"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "mooncake_transfer_failed_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 120
+      },
+      "source_description": "Total number of failed MoonCake transfers",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/transfer/mooncake_transfer_engine.cpp",
+          "line": 685,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/framework/transfer/mooncake_transfer_engine.cpp",
+          "line": 693,
+          "macro": "COUNTER_INC"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "mooncake_transfer_failed_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "mooncake_transfer_latency_microseconds_read",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 122
+      },
+      "source_description": "MoonCake READ transfer latency in microseconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/transfer/mooncake_transfer_engine.cpp",
+          "line": 703,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "mooncake_transfer_latency_microseconds_read_latency",
+        "mooncake_transfer_latency_microseconds_read_max_latency",
+        "mooncake_transfer_latency_microseconds_read_count",
+        "mooncake_transfer_latency_microseconds_read_qps",
+        "mooncake_transfer_latency_microseconds_read_latency_{bvar_latency_p1}",
+        "mooncake_transfer_latency_microseconds_read_latency_{bvar_latency_p2}",
+        "mooncake_transfer_latency_microseconds_read_latency_{bvar_latency_p3}",
+        "mooncake_transfer_latency_microseconds_read_latency_999",
+        "mooncake_transfer_latency_microseconds_read_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "mooncake_transfer_latency_microseconds_write",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 124
+      },
+      "source_description": "MoonCake WRITE transfer latency in microseconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/transfer/mooncake_transfer_engine.cpp",
+          "line": 708,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "mooncake_transfer_latency_microseconds_write_latency",
+        "mooncake_transfer_latency_microseconds_write_max_latency",
+        "mooncake_transfer_latency_microseconds_write_count",
+        "mooncake_transfer_latency_microseconds_write_qps",
+        "mooncake_transfer_latency_microseconds_write_latency_{bvar_latency_p1}",
+        "mooncake_transfer_latency_microseconds_write_latency_{bvar_latency_p2}",
+        "mooncake_transfer_latency_microseconds_write_latency_{bvar_latency_p3}",
+        "mooncake_transfer_latency_microseconds_write_latency_999",
+        "mooncake_transfer_latency_microseconds_write_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "execution_latency_seconds_model",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 128
+      },
+      "source_description": "Latency of model execution in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/runtime/dit_worker_impl.cpp",
+          "line": 177,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/runtime/embed_vlm_worker_impl.cpp",
+          "line": 70,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/runtime/embed_worker_impl.cpp",
+          "line": 73,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/runtime/llm_worker_impl.cpp",
+          "line": 421,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/runtime/mm_embed_vlm_worker_impl.cpp",
+          "line": 78,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/runtime/rec_worker_impl.cpp",
+          "line": 577,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/runtime/rec_worker_impl.cpp",
+          "line": 789,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/runtime/rec_worker_impl.cpp",
+          "line": 818,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/runtime/rec_worker_impl.cpp",
+          "line": 1682,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/runtime/rec_worker_impl.cpp",
+          "line": 1696,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/runtime/rec_worker_impl.cpp",
+          "line": 1874,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/runtime/rec_worker_impl.cpp",
+          "line": 2262,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/runtime/vlm_worker_impl.cpp",
+          "line": 170,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "execution_latency_seconds_model"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "execution_latency_seconds_logits_processing",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 130
+      },
+      "source_description": "Latency of logits processing in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "no_write_macros_or_symbol_references_found",
+      "export_name_patterns": [
+        "execution_latency_seconds_logits_processing"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "execution_latency_seconds_sampling",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 132
+      },
+      "source_description": "Latency of sampling in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/runtime/embed_worker_impl.cpp",
+          "line": 92,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/runtime/vlm_worker_impl.cpp",
+          "line": 185,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "execution_latency_seconds_sampling"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "json_object_mask_cache_hits_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 135
+      },
+      "source_description": "JSON object mask cache hit count",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/sampling/json_object_grammar.cpp",
+          "line": 803,
+          "macro": "COUNTER_INC"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "json_object_mask_cache_hits_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "json_object_mask_cache_misses_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 137
+      },
+      "source_description": "JSON object mask cache miss count",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/sampling/json_object_grammar.cpp",
+          "line": 808,
+          "macro": "COUNTER_INC"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "json_object_mask_cache_misses_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "json_object_mask_vocab_scan_latency_microseconds",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 139
+      },
+      "source_description": "JSON object mask vocabulary scan latency in microseconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/sampling/json_object_grammar.cpp",
+          "line": 811,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "json_object_mask_vocab_scan_latency_microseconds_latency",
+        "json_object_mask_vocab_scan_latency_microseconds_max_latency",
+        "json_object_mask_vocab_scan_latency_microseconds_count",
+        "json_object_mask_vocab_scan_latency_microseconds_qps",
+        "json_object_mask_vocab_scan_latency_microseconds_latency_{bvar_latency_p1}",
+        "json_object_mask_vocab_scan_latency_microseconds_latency_{bvar_latency_p2}",
+        "json_object_mask_vocab_scan_latency_microseconds_latency_{bvar_latency_p3}",
+        "json_object_mask_vocab_scan_latency_microseconds_latency_999",
+        "json_object_mask_vocab_scan_latency_microseconds_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "json_object_mask_row_build_latency_microseconds",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 141
+      },
+      "source_description": "JSON object CPU mask row build latency in microseconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/sampling/json_object_grammar.cpp",
+          "line": 820,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "json_object_mask_row_build_latency_microseconds_latency",
+        "json_object_mask_row_build_latency_microseconds_max_latency",
+        "json_object_mask_row_build_latency_microseconds_count",
+        "json_object_mask_row_build_latency_microseconds_qps",
+        "json_object_mask_row_build_latency_microseconds_latency_{bvar_latency_p1}",
+        "json_object_mask_row_build_latency_microseconds_latency_{bvar_latency_p2}",
+        "json_object_mask_row_build_latency_microseconds_latency_{bvar_latency_p3}",
+        "json_object_mask_row_build_latency_microseconds_latency_999",
+        "json_object_mask_row_build_latency_microseconds_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "json_object_mask_batch_build_latency_microseconds",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 143
+      },
+      "source_description": "JSON object CPU mask batch build latency in microseconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/sampling/json_object_grammar.cpp",
+          "line": 960,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/framework/sampling/json_object_grammar.cpp",
+          "line": 1018,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/framework/sampling/sampling_params.cpp",
+          "line": 268,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "json_object_mask_batch_build_latency_microseconds_latency",
+        "json_object_mask_batch_build_latency_microseconds_max_latency",
+        "json_object_mask_batch_build_latency_microseconds_count",
+        "json_object_mask_batch_build_latency_microseconds_qps",
+        "json_object_mask_batch_build_latency_microseconds_latency_{bvar_latency_p1}",
+        "json_object_mask_batch_build_latency_microseconds_latency_{bvar_latency_p2}",
+        "json_object_mask_batch_build_latency_microseconds_latency_{bvar_latency_p3}",
+        "json_object_mask_batch_build_latency_microseconds_latency_999",
+        "json_object_mask_batch_build_latency_microseconds_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "json_object_mask_device_copy_latency_microseconds",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 145
+      },
+      "source_description": "JSON object blocking device copy latency in microseconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/sampling/json_object_grammar.cpp",
+          "line": 883,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/framework/sampling/json_object_grammar.cpp",
+          "line": 910,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/framework/sampling/json_object_grammar.cpp",
+          "line": 965,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/framework/sampling/json_object_grammar.cpp",
+          "line": 1025,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "json_object_mask_device_copy_latency_microseconds_latency",
+        "json_object_mask_device_copy_latency_microseconds_max_latency",
+        "json_object_mask_device_copy_latency_microseconds_count",
+        "json_object_mask_device_copy_latency_microseconds_qps",
+        "json_object_mask_device_copy_latency_microseconds_latency_{bvar_latency_p1}",
+        "json_object_mask_device_copy_latency_microseconds_latency_{bvar_latency_p2}",
+        "json_object_mask_device_copy_latency_microseconds_latency_{bvar_latency_p3}",
+        "json_object_mask_device_copy_latency_microseconds_latency_999",
+        "json_object_mask_device_copy_latency_microseconds_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "json_object_mask_transfer_submission_latency_microseconds",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 147
+      },
+      "source_description": "JSON object non-blocking device copy submission latency in microseconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/sampling/sampling_params.cpp",
+          "line": 322,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/framework/sampling/sampling_params.cpp",
+          "line": 335,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "json_object_mask_transfer_submission_latency_microseconds_latency",
+        "json_object_mask_transfer_submission_latency_microseconds_max_latency",
+        "json_object_mask_transfer_submission_latency_microseconds_count",
+        "json_object_mask_transfer_submission_latency_microseconds_qps",
+        "json_object_mask_transfer_submission_latency_microseconds_latency_{bvar_latency_p1}",
+        "json_object_mask_transfer_submission_latency_microseconds_latency_{bvar_latency_p2}",
+        "json_object_mask_transfer_submission_latency_microseconds_latency_{bvar_latency_p3}",
+        "json_object_mask_transfer_submission_latency_microseconds_latency_999",
+        "json_object_mask_transfer_submission_latency_microseconds_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "json_object_mask_build_calls_normal_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 150
+      },
+      "source_description": "JSON object normal mask build calls",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/sampling/json_object_grammar.cpp",
+          "line": 42,
+          "macro": "COUNTER_INC"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "json_object_mask_build_calls_normal_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "json_object_mask_build_calls_draft_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 152
+      },
+      "source_description": "JSON object draft mask build calls",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/sampling/json_object_grammar.cpp",
+          "line": 48,
+          "macro": "COUNTER_INC"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "json_object_mask_build_calls_draft_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "json_object_mask_build_calls_target_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 154
+      },
+      "source_description": "JSON object target mask build calls",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/sampling/json_object_grammar.cpp",
+          "line": 54,
+          "macro": "COUNTER_INC"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "json_object_mask_build_calls_target_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "json_object_mask_build_rows_normal_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 156
+      },
+      "source_description": "JSON object normal mask build rows",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/sampling/json_object_grammar.cpp",
+          "line": 43,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "json_object_mask_build_rows_normal_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "json_object_mask_build_rows_draft_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 158
+      },
+      "source_description": "JSON object draft mask build rows",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/sampling/json_object_grammar.cpp",
+          "line": 49,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "json_object_mask_build_rows_draft_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "json_object_mask_build_rows_target_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 160
+      },
+      "source_description": "JSON object target mask build rows",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/sampling/json_object_grammar.cpp",
+          "line": 55,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "json_object_mask_build_rows_target_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "json_object_mask_build_constrained_rows_normal_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 162
+      },
+      "source_description": "JSON object constrained rows in normal mask builds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/sampling/json_object_grammar.cpp",
+          "line": 44,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "json_object_mask_build_constrained_rows_normal_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "json_object_mask_build_constrained_rows_draft_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 164
+      },
+      "source_description": "JSON object constrained rows in draft mask builds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/sampling/json_object_grammar.cpp",
+          "line": 50,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "json_object_mask_build_constrained_rows_draft_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "json_object_mask_build_constrained_rows_target_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 166
+      },
+      "source_description": "JSON object constrained rows in target mask builds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/sampling/json_object_grammar.cpp",
+          "line": 56,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "json_object_mask_build_constrained_rows_target_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "num_pending_requests",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 170
+      },
+      "source_description": "Number of pending requests in scheduler",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/scheduler/dit_scheduler.cpp",
+          "line": 234,
+          "macro": "GAUGE_SET"
+        },
+        {
+          "file": "xllm/core/scheduler/fixed_steps_scheduler.cpp",
+          "line": 456,
+          "macro": "GAUGE_SET"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "num_pending_requests"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "num_running_requests",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 171
+      },
+      "source_description": "Number of running requests in scheduler",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/scheduler/dit_scheduler.cpp",
+          "line": 236,
+          "macro": "GAUGE_SET"
+        },
+        {
+          "file": "xllm/core/scheduler/fixed_steps_scheduler.cpp",
+          "line": 458,
+          "macro": "GAUGE_SET"
+        },
+        {
+          "file": "xllm/core/scheduler/scheduler_policy.cpp",
+          "line": 980,
+          "macro": "GAUGE_SET"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "num_running_requests"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "num_waiting_requests",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 172
+      },
+      "source_description": "Number of waiting requests in scheduler",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/scheduler/dit_scheduler.cpp",
+          "line": 237,
+          "macro": "GAUGE_SET"
+        },
+        {
+          "file": "xllm/core/scheduler/fixed_steps_scheduler.cpp",
+          "line": 459,
+          "macro": "GAUGE_SET"
+        },
+        {
+          "file": "xllm/core/scheduler/scheduler_policy.cpp",
+          "line": 981,
+          "macro": "GAUGE_SET"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "num_waiting_requests"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "num_preempted_requests",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 173
+      },
+      "source_description": "Number of preempted requests in scheduler",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/scheduler/fixed_steps_scheduler.cpp",
+          "line": 461,
+          "macro": "GAUGE_ADD"
+        },
+        {
+          "file": "xllm/core/scheduler/scheduler_policy.cpp",
+          "line": 983,
+          "macro": "GAUGE_SET"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "num_preempted_requests"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "num_offline_decode_preempt_offline_requests",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 175
+      },
+      "source_description": "Number of offline decode preempt offline requests in scheduler",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "no_write_macros_or_symbol_references_found",
+      "export_name_patterns": [
+        "num_offline_decode_preempt_offline_requests"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "num_online_decode_preempt_online_requests",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 177
+      },
+      "source_description": "Number of online decode preempt online requests in scheduler",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "no_write_macros_or_symbol_references_found",
+      "export_name_patterns": [
+        "num_online_decode_preempt_online_requests"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "num_online_prefill_preempt_offline_requests",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 179
+      },
+      "source_description": "Number of online prefill preempt offline requests in scheduler",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "no_write_macros_or_symbol_references_found",
+      "export_name_patterns": [
+        "num_online_prefill_preempt_offline_requests"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "num_online_decode_preempt_offline_requests",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 181
+      },
+      "source_description": "Number of online decode preempt offline requests in scheduler",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "no_write_macros_or_symbol_references_found",
+      "export_name_patterns": [
+        "num_online_decode_preempt_offline_requests"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "num_running_sequences",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 184
+      },
+      "source_description": "Number of running sequences",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/scheduler/fixed_steps_scheduler.cpp",
+          "line": 463,
+          "macro": "GAUGE_SET"
+        },
+        {
+          "file": "xllm/core/scheduler/scheduler_policy.cpp",
+          "line": 984,
+          "macro": "GAUGE_SET"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "num_running_sequences"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "kv_cache_utilization_perc",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 186
+      },
+      "source_description": "Utilization of the kv cache in percentage",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/scheduler/fixed_steps_scheduler.cpp",
+          "line": 465,
+          "macro": "GAUGE_SET"
+        },
+        {
+          "file": "xllm/core/scheduler/scheduler_policy.cpp",
+          "line": 985,
+          "macro": "GAUGE_SET"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "kv_cache_utilization_perc"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "num_blocks_in_prefix_cache",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 188
+      },
+      "source_description": "Number of blocks in the prefix cache",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/scheduler/fixed_steps_scheduler.cpp",
+          "line": 467,
+          "macro": "GAUGE_SET"
+        },
+        {
+          "file": "xllm/core/scheduler/scheduler_policy.cpp",
+          "line": 987,
+          "macro": "GAUGE_SET"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "num_blocks_in_prefix_cache"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "num_free_blocks",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 190
+      },
+      "source_description": "Number of free blocks in the block allocator",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/scheduler/fixed_steps_scheduler.cpp",
+          "line": 469,
+          "macro": "GAUGE_SET"
+        },
+        {
+          "file": "xllm/core/scheduler/scheduler_policy.cpp",
+          "line": 989,
+          "macro": "GAUGE_SET"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "num_free_blocks"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "num_used_blocks",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 191
+      },
+      "source_description": "Effective number of blocks in use",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/scheduler/fixed_steps_scheduler.cpp",
+          "line": 470,
+          "macro": "GAUGE_SET"
+        },
+        {
+          "file": "xllm/core/scheduler/scheduler_policy.cpp",
+          "line": 991,
+          "macro": "GAUGE_SET"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "num_used_blocks"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "scheduling_latency_seconds",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 193
+      },
+      "source_description": "Latency of scheduling in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/scheduler/continuous_scheduler.cpp",
+          "line": 445,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/scheduler/fixed_steps_scheduler.cpp",
+          "line": 450,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "scheduling_latency_seconds"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "num_processing_tokens_total_prompt",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 195
+      },
+      "source_description": "Total number of processing prompt tokens",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/batch/batch_builder.cpp",
+          "line": 125,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/framework/batch/rec_batch_builder.cpp",
+          "line": 120,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "num_processing_tokens_total_prompt"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "num_processing_tokens_total_generated",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 197
+      },
+      "source_description": "Total number of processing generated tokens",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/batch/batch_builder.cpp",
+          "line": 126,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/framework/batch/rec_batch_builder.cpp",
+          "line": 121,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "num_processing_tokens_total_generated"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "num_prompt_tokens_per_request",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 200
+      },
+      "source_description": "Histogram of the prompt token number per request",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/batch/batch_builder.cpp",
+          "line": 128,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/framework/batch/rec_batch_builder.cpp",
+          "line": 123,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "num_prompt_tokens_per_request_latency",
+        "num_prompt_tokens_per_request_max_latency",
+        "num_prompt_tokens_per_request_count",
+        "num_prompt_tokens_per_request_qps",
+        "num_prompt_tokens_per_request_latency_{bvar_latency_p1}",
+        "num_prompt_tokens_per_request_latency_{bvar_latency_p2}",
+        "num_prompt_tokens_per_request_latency_{bvar_latency_p3}",
+        "num_prompt_tokens_per_request_latency_999",
+        "num_prompt_tokens_per_request_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "num_generated_tokens_per_request",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 203
+      },
+      "source_description": "Histogram of the generated token number per request",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/batch/batch_builder.cpp",
+          "line": 131,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/framework/batch/rec_batch_builder.cpp",
+          "line": 126,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "num_generated_tokens_per_request_latency",
+        "num_generated_tokens_per_request_max_latency",
+        "num_generated_tokens_per_request_count",
+        "num_generated_tokens_per_request_qps",
+        "num_generated_tokens_per_request_latency_{bvar_latency_p1}",
+        "num_generated_tokens_per_request_latency_{bvar_latency_p2}",
+        "num_generated_tokens_per_request_latency_{bvar_latency_p3}",
+        "num_generated_tokens_per_request_latency_999",
+        "num_generated_tokens_per_request_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "time_to_first_token_latency_milliseconds",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 207
+      },
+      "source_description": "Histogram of time to first token latency in milliseconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/scheduler/scheduler_metrics.cpp",
+          "line": 105,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "time_to_first_token_latency_milliseconds_latency",
+        "time_to_first_token_latency_milliseconds_max_latency",
+        "time_to_first_token_latency_milliseconds_count",
+        "time_to_first_token_latency_milliseconds_qps",
+        "time_to_first_token_latency_milliseconds_latency_{bvar_latency_p1}",
+        "time_to_first_token_latency_milliseconds_latency_{bvar_latency_p2}",
+        "time_to_first_token_latency_milliseconds_latency_{bvar_latency_p3}",
+        "time_to_first_token_latency_milliseconds_latency_999",
+        "time_to_first_token_latency_milliseconds_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "inter_token_latency_milliseconds",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 210
+      },
+      "source_description": "Histogram of inter token latency in milliseconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/scheduler/scheduler_metrics.cpp",
+          "line": 123,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "inter_token_latency_milliseconds_latency",
+        "inter_token_latency_milliseconds_max_latency",
+        "inter_token_latency_milliseconds_count",
+        "inter_token_latency_milliseconds_qps",
+        "inter_token_latency_milliseconds_latency_{bvar_latency_p1}",
+        "inter_token_latency_milliseconds_latency_{bvar_latency_p2}",
+        "inter_token_latency_milliseconds_latency_{bvar_latency_p3}",
+        "inter_token_latency_milliseconds_latency_999",
+        "inter_token_latency_milliseconds_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "inter_token_latency_microseconds",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 212
+      },
+      "source_description": "Histogram of inter token latency in microseconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/scheduler/scheduler_metrics.cpp",
+          "line": 121,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "inter_token_latency_microseconds_latency",
+        "inter_token_latency_microseconds_max_latency",
+        "inter_token_latency_microseconds_count",
+        "inter_token_latency_microseconds_qps",
+        "inter_token_latency_microseconds_latency_{bvar_latency_p1}",
+        "inter_token_latency_microseconds_latency_{bvar_latency_p2}",
+        "inter_token_latency_microseconds_latency_{bvar_latency_p3}",
+        "inter_token_latency_microseconds_latency_999",
+        "inter_token_latency_microseconds_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "responsing_latency_seconds_stream",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 216
+      },
+      "source_description": "Latency of stream responding in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/scheduler/request_output_dispatcher.cpp",
+          "line": 245,
+          "macro": "AUTO_COUNTER"
+        },
+        {
+          "file": "xllm/core/scheduler/request_output_dispatcher.cpp",
+          "line": 299,
+          "macro": "AUTO_COUNTER"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "responsing_latency_seconds_stream"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "responsing_latency_seconds_non_stream",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 218
+      },
+      "source_description": "Latency of non-stream responding in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/scheduler/request_output_dispatcher.cpp",
+          "line": 144,
+          "macro": "AUTO_COUNTER"
+        },
+        {
+          "file": "xllm/core/scheduler/request_output_dispatcher.cpp",
+          "line": 179,
+          "macro": "AUTO_COUNTER"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "responsing_latency_seconds_non_stream"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "end_2_end_latency_milliseconds",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 221
+      },
+      "source_description": "Histogram of end to end latency in milliseconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/scheduler/dit_scheduler.cpp",
+          "line": 119,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/scheduler/request_output_dispatcher.cpp",
+          "line": 148,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/scheduler/request_output_dispatcher.cpp",
+          "line": 182,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "end_2_end_latency_milliseconds_latency",
+        "end_2_end_latency_milliseconds_max_latency",
+        "end_2_end_latency_milliseconds_count",
+        "end_2_end_latency_milliseconds_qps",
+        "end_2_end_latency_milliseconds_latency_{bvar_latency_p1}",
+        "end_2_end_latency_milliseconds_latency_{bvar_latency_p2}",
+        "end_2_end_latency_milliseconds_latency_{bvar_latency_p3}",
+        "end_2_end_latency_milliseconds_latency_999",
+        "end_2_end_latency_milliseconds_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "server_request_in_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 225
+      },
+      "source_description": "Total number of request that server received",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/api_service/rpc_request_metrics.h",
+          "line": 24,
+          "macro": "COUNTER_INC"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "server_request_in_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "server_request_total_ok",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 228
+      },
+      "source_description": "Total number of ok request that server processed",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/api_service/rpc_request_metrics.h",
+          "line": 35,
+          "macro": "COUNTER_INC"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "server_request_total_ok"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "server_request_total_limit",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 230
+      },
+      "source_description": "Total number of limit request that server processed",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/api_service/rpc_request_metrics.h",
+          "line": 39,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/common/rate_limiter.cpp",
+          "line": 38,
+          "macro": "COUNTER_INC"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "server_request_total_limit"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "server_request_total_fail",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 232
+      },
+      "source_description": "Total number of fail request that server processed",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/api_service/rpc_request_metrics.h",
+          "line": 37,
+          "macro": "COUNTER_INC"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "server_request_total_fail"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "num_concurrent_requests",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 235
+      },
+      "source_description": "Number of concurrent requests in server",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/common/rate_limiter.cpp",
+          "line": 49,
+          "macro": "GAUGE_SET"
+        },
+        {
+          "file": "xllm/core/common/rate_limiter.cpp",
+          "line": 57,
+          "macro": "GAUGE_SET"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "num_concurrent_requests"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "xllm_cpu_num",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 238
+      },
+      "source_description": "The cpu number pre instance for xllm",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "no_write_macros_or_symbol_references_found",
+      "export_name_patterns": [
+        "xllm_cpu_num"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "xllm_cpu_utilization",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 239
+      },
+      "source_description": "The cpu utilization pre instance for xllm",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "no_write_macros_or_symbol_references_found",
+      "export_name_patterns": [
+        "xllm_cpu_utilization"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "xllm_gpu_num",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 240
+      },
+      "source_description": "The gpu number pre instance for xllm",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "no_write_macros_or_symbol_references_found",
+      "export_name_patterns": [
+        "xllm_gpu_num"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "xllm_gpu_utilization",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 241
+      },
+      "source_description": "The gpu utilization pre instance for xllm",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "no_write_macros_or_symbol_references_found",
+      "export_name_patterns": [
+        "xllm_gpu_utilization"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "speculative_execution_latency_seconds_draft",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 244
+      },
+      "source_description": "Latency of draft execution in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/runtime/dflash2_worker_impl.cpp",
+          "line": 135,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/runtime/dflash_worker_impl.cpp",
+          "line": 681,
+          "macro": "AUTO_COUNTER"
+        },
+        {
+          "file": "xllm/core/runtime/dflash_worker_impl.cpp",
+          "line": 744,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/runtime/dspark_worker_impl.cpp",
+          "line": 134,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/runtime/mtp_worker_impl.cpp",
+          "line": 1338,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/runtime/mtp_worker_impl.cpp",
+          "line": 1808,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/runtime/suffix_worker_impl.cpp",
+          "line": 276,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "speculative_execution_latency_seconds_draft"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "speculative_execution_latency_seconds_target",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 246
+      },
+      "source_description": "Latency of target execution in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/runtime/dflash_worker_impl.cpp",
+          "line": 651,
+          "macro": "AUTO_COUNTER"
+        },
+        {
+          "file": "xllm/core/runtime/dflash_worker_impl.cpp",
+          "line": 957,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/runtime/mtp_worker_impl.cpp",
+          "line": 1294,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/runtime/mtp_worker_impl.cpp",
+          "line": 2156,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/runtime/suffix_worker_impl.cpp",
+          "line": 99,
+          "macro": "AUTO_COUNTER"
+        },
+        {
+          "file": "xllm/core/runtime/suffix_worker_impl.cpp",
+          "line": 281,
+          "macro": "AUTO_COUNTER"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "speculative_execution_latency_seconds_target"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "speculative_execution_latency_seconds_validation",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 248
+      },
+      "source_description": "Latency of validation in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/runtime/dflash_worker_impl.cpp",
+          "line": 1015,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/runtime/mtp_worker_impl.cpp",
+          "line": 2216,
+          "macro": "AUTO_COUNTER"
+        },
+        {
+          "file": "xllm/core/runtime/suffix_worker_impl.cpp",
+          "line": 295,
+          "macro": "AUTO_COUNTER"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "speculative_execution_latency_seconds_validation"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "speculative_num_drafts_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 251
+      },
+      "source_description": "Total number of speculative proposal sequences",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/speculative/metrics.cpp",
+          "line": 141,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [
+        {
+          "file": "xllm/core/framework/speculative/metrics.cpp",
+          "line": 159,
+          "macro": "COUNTER_VALUE"
+        }
+      ],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "speculative_num_drafts_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "speculative_num_accepted_tokens_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 253
+      },
+      "source_description": "Total number of accepted tokens in validation",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/speculative/metrics.cpp",
+          "line": 143,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "speculative_num_accepted_tokens_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "speculative_num_draft_tokens_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 255
+      },
+      "source_description": "Total number of draft tokens",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/speculative/metrics.cpp",
+          "line": 142,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "speculative_num_draft_tokens_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "speculative_num_committed_tokens_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 257
+      },
+      "source_description": "Total number of tokens committed by speculative decode",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/speculative/metrics.cpp",
+          "line": 145,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [
+        {
+          "file": "xllm/core/framework/speculative/metrics.cpp",
+          "line": 163,
+          "macro": "COUNTER_VALUE"
+        }
+      ],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "speculative_num_committed_tokens_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "speculative_num_accepted_tokens_per_pos",
+      "macro_type": "MULTI_COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 259
+      },
+      "source_description": "Accepted speculative tokens by zero-based draft position",
+      "declared_dimensions": [
+        "position"
+      ],
+      "direct_write_macro_sites": [],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [
+        {
+          "file": "xllm/core/framework/speculative/metrics.cpp",
+          "line": 81,
+          "symbol": "MULTI_COUNTER_speculative_num_accepted_tokens_per_pos"
+        }
+      ],
+      "backing_type": "bvar::MultiDimension<bvar::Adder<double>>",
+      "reference_status": "symbol_references_only_verify_indirect_writes",
+      "export_name_patterns": [
+        "speculative_num_accepted_tokens_per_pos_position_{position}"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "speculative_mean_acceptance_length",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 263
+      },
+      "source_description": "Cumulative acceptance length: mean tokens committed per speculative proposal sequence, including the target bonus token (1.0 without accepted draft tokens)",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/speculative/metrics.cpp",
+          "line": 161,
+          "macro": "GAUGE_SET"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "speculative_mean_acceptance_length"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "speculative_conditional_acceptance_rate_per_pos",
+      "macro_type": "MULTI_GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 267
+      },
+      "source_description": "Per-position conditional draft acceptance rate: P(accept position i | position i-1 accepted)",
+      "declared_dimensions": [
+        "position"
+      ],
+      "direct_write_macro_sites": [],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [
+        {
+          "file": "xllm/core/framework/speculative/metrics.cpp",
+          "line": 86,
+          "symbol": "MULTI_GAUGE_speculative_conditional_acceptance_rate_per_pos"
+        }
+      ],
+      "backing_type": "bvar::MultiDimension<bvar::Status<double>>",
+      "reference_status": "symbol_references_only_verify_indirect_writes",
+      "export_name_patterns": [
+        "speculative_conditional_acceptance_rate_per_pos_position_{position}"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "speculative_draft_token_d2h_latency_microseconds",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 271
+      },
+      "source_description": "Latency of draft token host copies in microseconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/runtime/mtp_worker_impl.cpp",
+          "line": 633,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/runtime/mtp_worker_impl.cpp",
+          "line": 1742,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "speculative_draft_token_d2h_latency_microseconds_latency",
+        "speculative_draft_token_d2h_latency_microseconds_max_latency",
+        "speculative_draft_token_d2h_latency_microseconds_count",
+        "speculative_draft_token_d2h_latency_microseconds_qps",
+        "speculative_draft_token_d2h_latency_microseconds_latency_{bvar_latency_p1}",
+        "speculative_draft_token_d2h_latency_microseconds_latency_{bvar_latency_p2}",
+        "speculative_draft_token_d2h_latency_microseconds_latency_{bvar_latency_p3}",
+        "speculative_draft_token_d2h_latency_microseconds_latency_999",
+        "speculative_draft_token_d2h_latency_microseconds_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "speculative_draft_token_copy_submission_latency_microseconds",
+      "macro_type": "MULTI_HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 273
+      },
+      "source_description": "Latency of draft token asynchronous host-copy submission in microseconds",
+      "declared_dimensions": [
+        "draft_index"
+      ],
+      "direct_write_macro_sites": [],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [
+        {
+          "file": "xllm/core/runtime/mtp_worker_impl.cpp",
+          "line": 524,
+          "symbol": "MULTI_HISTOGRAM_speculative_draft_token_copy_submission_latency_microseconds"
+        }
+      ],
+      "backing_type": "bvar::MultiDimension<bvar::LatencyRecorder>",
+      "reference_status": "symbol_references_only_verify_indirect_writes",
+      "export_name_patterns": [
+        "speculative_draft_token_copy_submission_latency_microseconds_latency_draft_index_{draft_index}",
+        "speculative_draft_token_copy_submission_latency_microseconds_max_latency_draft_index_{draft_index}",
+        "speculative_draft_token_copy_submission_latency_microseconds_count_draft_index_{draft_index}",
+        "speculative_draft_token_copy_submission_latency_microseconds_qps_draft_index_{draft_index}",
+        "speculative_draft_token_copy_submission_latency_microseconds_latency_draft_index_{draft_index}_quantile_{percentile}"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "speculative_draft_token_ready_wait_latency_microseconds",
+      "macro_type": "MULTI_HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 277
+      },
+      "source_description": "Latency of draft token host event wait in microseconds",
+      "declared_dimensions": [
+        "draft_index"
+      ],
+      "direct_write_macro_sites": [],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [
+        {
+          "file": "xllm/core/runtime/mtp_worker_impl.cpp",
+          "line": 527,
+          "symbol": "MULTI_HISTOGRAM_speculative_draft_token_ready_wait_latency_microseconds"
+        }
+      ],
+      "backing_type": "bvar::MultiDimension<bvar::LatencyRecorder>",
+      "reference_status": "symbol_references_only_verify_indirect_writes",
+      "export_name_patterns": [
+        "speculative_draft_token_ready_wait_latency_microseconds_latency_draft_index_{draft_index}",
+        "speculative_draft_token_ready_wait_latency_microseconds_max_latency_draft_index_{draft_index}",
+        "speculative_draft_token_ready_wait_latency_microseconds_count_draft_index_{draft_index}",
+        "speculative_draft_token_ready_wait_latency_microseconds_qps_draft_index_{draft_index}",
+        "speculative_draft_token_ready_wait_latency_microseconds_latency_draft_index_{draft_index}_quantile_{percentile}"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "speculative_draft_token_bulk_read_latency_microseconds",
+      "macro_type": "MULTI_HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 281
+      },
+      "source_description": "Latency of draft token bulk host read in microseconds",
+      "declared_dimensions": [
+        "draft_index"
+      ],
+      "direct_write_macro_sites": [],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [
+        {
+          "file": "xllm/core/runtime/mtp_worker_impl.cpp",
+          "line": 530,
+          "symbol": "MULTI_HISTOGRAM_speculative_draft_token_bulk_read_latency_microseconds"
+        }
+      ],
+      "backing_type": "bvar::MultiDimension<bvar::LatencyRecorder>",
+      "reference_status": "symbol_references_only_verify_indirect_writes",
+      "export_name_patterns": [
+        "speculative_draft_token_bulk_read_latency_microseconds_latency_draft_index_{draft_index}",
+        "speculative_draft_token_bulk_read_latency_microseconds_max_latency_draft_index_{draft_index}",
+        "speculative_draft_token_bulk_read_latency_microseconds_count_draft_index_{draft_index}",
+        "speculative_draft_token_bulk_read_latency_microseconds_qps_draft_index_{draft_index}",
+        "speculative_draft_token_bulk_read_latency_microseconds_latency_draft_index_{draft_index}_quantile_{percentile}"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "speculative_draft_token_handoff_latency_microseconds",
+      "macro_type": "MULTI_HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 284
+      },
+      "source_description": "Total latency of draft token host handoff in microseconds",
+      "declared_dimensions": [
+        "draft_index"
+      ],
+      "direct_write_macro_sites": [],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [
+        {
+          "file": "xllm/core/runtime/mtp_worker_impl.cpp",
+          "line": 533,
+          "symbol": "MULTI_HISTOGRAM_speculative_draft_token_handoff_latency_microseconds"
+        }
+      ],
+      "backing_type": "bvar::MultiDimension<bvar::LatencyRecorder>",
+      "reference_status": "symbol_references_only_verify_indirect_writes",
+      "export_name_patterns": [
+        "speculative_draft_token_handoff_latency_microseconds_latency_draft_index_{draft_index}",
+        "speculative_draft_token_handoff_latency_microseconds_max_latency_draft_index_{draft_index}",
+        "speculative_draft_token_handoff_latency_microseconds_count_draft_index_{draft_index}",
+        "speculative_draft_token_handoff_latency_microseconds_qps_draft_index_{draft_index}",
+        "speculative_draft_token_handoff_latency_microseconds_latency_draft_index_{draft_index}_quantile_{percentile}"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "speculative_draft_token_handoff_fallback_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 288
+      },
+      "source_description": "Draft token host handoff fallback count",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/runtime/mtp_worker_impl.cpp",
+          "line": 625,
+          "macro": "COUNTER_INC"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "speculative_draft_token_handoff_fallback_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "speculative_num_accepted_tokens_constrained_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 290
+      },
+      "source_description": "Accepted speculative tokens from constrained rows",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/speculative/metrics.cpp",
+          "line": 147,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "speculative_num_accepted_tokens_constrained_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "speculative_num_accepted_tokens_plain_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 292
+      },
+      "source_description": "Accepted speculative tokens from plain rows",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/speculative/metrics.cpp",
+          "line": 149,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "speculative_num_accepted_tokens_plain_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "speculative_num_draft_tokens_constrained_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 294
+      },
+      "source_description": "Draft speculative tokens from constrained rows",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/speculative/metrics.cpp",
+          "line": 152,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "speculative_num_draft_tokens_constrained_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "speculative_num_draft_tokens_plain_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 296
+      },
+      "source_description": "Draft speculative tokens from plain rows",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/speculative/metrics.cpp",
+          "line": 154,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "speculative_num_draft_tokens_plain_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "speculative_unified_graph_executions_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 298
+      },
+      "source_description": "Successful unified Python MTP graph executions",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/runtime/task_execution_pipeline_speculative.cpp",
+          "line": 1601,
+          "macro": "COUNTER_INC"
+        },
+        {
+          "file": "xllm/core/runtime/unified_mtp_executor.cpp",
+          "line": 184,
+          "macro": "COUNTER_INC"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "speculative_unified_graph_executions_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "speculative_legacy_decode_steps_total",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 300
+      },
+      "source_description": "MTP decode steps handled by the legacy path",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "no_write_macros_or_symbol_references_found",
+      "export_name_patterns": [
+        "speculative_legacy_decode_steps_total"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "proto_latency_seconds_proto2i",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 304
+      },
+      "source_description": "Latency of proto2i convert in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "no_write_macros_or_symbol_references_found",
+      "export_name_patterns": [
+        "proto_latency_seconds_proto2i"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "proto_latency_seconds_i2proto",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 306
+      },
+      "source_description": "Latency of i2proto convert in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "no_write_macros_or_symbol_references_found",
+      "export_name_patterns": [
+        "proto_latency_seconds_i2proto"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "proto_latency_seconds_proto2o",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 308
+      },
+      "source_description": "Latency of proto2o convert in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/runtime/forward_output.cpp",
+          "line": 174,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "proto_latency_seconds_proto2o"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "proto_latency_seconds_o2proto",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 310
+      },
+      "source_description": "Latency of o2proto convert in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/runtime/forward_output.cpp",
+          "line": 355,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "proto_latency_seconds_o2proto"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "prepare_input_latency_seconds",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 314
+      },
+      "source_description": "Latency of preparing input in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/distributed_runtime/dit_engine.cpp",
+          "line": 122,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "prepare_input_latency_seconds"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "rec_total_latency_microseconds",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 318
+      },
+      "source_description": "Latency of rec engine in microseconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/api_service/rec_completion_service_impl.cpp",
+          "line": 356,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/api_service/rec_completion_service_impl.cpp",
+          "line": 365,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "rec_total_latency_microseconds_latency",
+        "rec_total_latency_microseconds_max_latency",
+        "rec_total_latency_microseconds_count",
+        "rec_total_latency_microseconds_qps",
+        "rec_total_latency_microseconds_latency_{bvar_latency_p1}",
+        "rec_total_latency_microseconds_latency_{bvar_latency_p2}",
+        "rec_total_latency_microseconds_latency_{bvar_latency_p3}",
+        "rec_total_latency_microseconds_latency_999",
+        "rec_total_latency_microseconds_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "prepare_input_latency_microseconds",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 320
+      },
+      "source_description": "Latency of preparing input in microseconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/distributed_runtime/rec_engine.cpp",
+          "line": 411,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/distributed_runtime/rec_engine.cpp",
+          "line": 701,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/distributed_runtime/rec_engine.cpp",
+          "line": 726,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/distributed_runtime/rec_engine.cpp",
+          "line": 849,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/distributed_runtime/rec_engine.cpp",
+          "line": 1144,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "prepare_input_latency_microseconds_latency",
+        "prepare_input_latency_microseconds_max_latency",
+        "prepare_input_latency_microseconds_count",
+        "prepare_input_latency_microseconds_qps",
+        "prepare_input_latency_microseconds_latency_{bvar_latency_p1}",
+        "prepare_input_latency_microseconds_latency_{bvar_latency_p2}",
+        "prepare_input_latency_microseconds_latency_{bvar_latency_p3}",
+        "prepare_input_latency_microseconds_latency_999",
+        "prepare_input_latency_microseconds_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "rec_first_token_latency_microseconds",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 322
+      },
+      "source_description": "Latency of rec first token generation in microseconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/distributed_runtime/rec_engine.cpp",
+          "line": 438,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/distributed_runtime/rec_engine.cpp",
+          "line": 710,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/distributed_runtime/rec_engine.cpp",
+          "line": 858,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/distributed_runtime/rec_engine.cpp",
+          "line": 1154,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "rec_first_token_latency_microseconds_latency",
+        "rec_first_token_latency_microseconds_max_latency",
+        "rec_first_token_latency_microseconds_count",
+        "rec_first_token_latency_microseconds_qps",
+        "rec_first_token_latency_microseconds_latency_{bvar_latency_p1}",
+        "rec_first_token_latency_microseconds_latency_{bvar_latency_p2}",
+        "rec_first_token_latency_microseconds_latency_{bvar_latency_p3}",
+        "rec_first_token_latency_microseconds_latency_999",
+        "rec_first_token_latency_microseconds_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "rec_second_token_latency_microseconds",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 324
+      },
+      "source_description": "Latency of rec second token generation in microseconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/distributed_runtime/rec_engine.cpp",
+          "line": 441,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/distributed_runtime/rec_engine.cpp",
+          "line": 732,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "rec_second_token_latency_microseconds_latency",
+        "rec_second_token_latency_microseconds_max_latency",
+        "rec_second_token_latency_microseconds_count",
+        "rec_second_token_latency_microseconds_qps",
+        "rec_second_token_latency_microseconds_latency_{bvar_latency_p1}",
+        "rec_second_token_latency_microseconds_latency_{bvar_latency_p2}",
+        "rec_second_token_latency_microseconds_latency_{bvar_latency_p3}",
+        "rec_second_token_latency_microseconds_latency_999",
+        "rec_second_token_latency_microseconds_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "rec_third_token_latency_microseconds",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 326
+      },
+      "source_description": "Latency of rec third token generation in microseconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/distributed_runtime/rec_engine.cpp",
+          "line": 444,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/distributed_runtime/rec_engine.cpp",
+          "line": 735,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "rec_third_token_latency_microseconds_latency",
+        "rec_third_token_latency_microseconds_max_latency",
+        "rec_third_token_latency_microseconds_count",
+        "rec_third_token_latency_microseconds_qps",
+        "rec_third_token_latency_microseconds_latency_{bvar_latency_p1}",
+        "rec_third_token_latency_microseconds_latency_{bvar_latency_p2}",
+        "rec_third_token_latency_microseconds_latency_{bvar_latency_p3}",
+        "rec_third_token_latency_microseconds_latency_999",
+        "rec_third_token_latency_microseconds_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "rec_sampling_latency_microseconds",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 328
+      },
+      "source_description": "Latency of rec sampling in microseconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/distributed_runtime/rec_engine.cpp",
+          "line": 475,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/distributed_runtime/rec_engine.cpp",
+          "line": 717,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/distributed_runtime/rec_engine.cpp",
+          "line": 744,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/distributed_runtime/rec_engine.cpp",
+          "line": 871,
+          "macro": "HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/distributed_runtime/rec_engine.cpp",
+          "line": 1161,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "rec_sampling_latency_microseconds_latency",
+        "rec_sampling_latency_microseconds_max_latency",
+        "rec_sampling_latency_microseconds_count",
+        "rec_sampling_latency_microseconds_qps",
+        "rec_sampling_latency_microseconds_latency_{bvar_latency_p1}",
+        "rec_sampling_latency_microseconds_latency_{bvar_latency_p2}",
+        "rec_sampling_latency_microseconds_latency_{bvar_latency_p3}",
+        "rec_sampling_latency_microseconds_latency_999",
+        "rec_sampling_latency_microseconds_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "rec_beam_search_width",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 331
+      },
+      "source_description": "rec beam search width",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/api_service/rec_completion_service_impl.cpp",
+          "line": 293,
+          "macro": "GAUGE_SET"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "rec_beam_search_width"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "rec_input_token_num_per_request",
+      "macro_type": "HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 333
+      },
+      "source_description": "Histogram of input token number per request in rec engine",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/api_service/rec_completion_service_impl.cpp",
+          "line": 324,
+          "macro": "HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::LatencyRecorder",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "rec_input_token_num_per_request_latency",
+        "rec_input_token_num_per_request_max_latency",
+        "rec_input_token_num_per_request_count",
+        "rec_input_token_num_per_request_qps",
+        "rec_input_token_num_per_request_latency_{bvar_latency_p1}",
+        "rec_input_token_num_per_request_latency_{bvar_latency_p2}",
+        "rec_input_token_num_per_request_latency_{bvar_latency_p3}",
+        "rec_input_token_num_per_request_latency_999",
+        "rec_input_token_num_per_request_latency_9999"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "worker_service_latency_seconds",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 337
+      },
+      "source_description": "Worker service execution latency in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/distributed_runtime/worker_service.cpp",
+          "line": 644,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/distributed_runtime/worker_service.cpp",
+          "line": 1048,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "worker_service_latency_seconds"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "engine_latency_seconds",
+      "macro_type": "COUNTER",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 339
+      },
+      "source_description": "Engine execution latency in seconds",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/distributed_runtime/llm_engine.cpp",
+          "line": 581,
+          "macro": "COUNTER_ADD"
+        },
+        {
+          "file": "xllm/core/distributed_runtime/vlm_engine.cpp",
+          "line": 416,
+          "macro": "COUNTER_ADD"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Adder<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "engine_latency_seconds"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "total_memory_size_in_kilobytes",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 342
+      },
+      "source_description": "Total memory size in kilobytes",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/kv_cache/layout/kv_cache_estimation.cpp",
+          "line": 765,
+          "macro": "GAUGE_SET"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "total_memory_size_in_kilobytes"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "weight_size_in_kilobytes",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 343
+      },
+      "source_description": "Weight size in kilobytes",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/kv_cache/layout/kv_cache_estimation.cpp",
+          "line": 763,
+          "macro": "GAUGE_SET"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "weight_size_in_kilobytes"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "total_kv_cache_size_in_kilobytes",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 344
+      },
+      "source_description": "KV cache size in kilobytes",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/framework/block/kv_cache_manager_factory.cpp",
+          "line": 79,
+          "macro": "GAUGE_SET"
+        }
+      ],
+      "read_macro_sites": [
+        {
+          "file": "xllm/core/scheduler/scheduler_metrics.cpp",
+          "line": 189,
+          "macro": "GAUGE_VALUE"
+        }
+      ],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "total_kv_cache_size_in_kilobytes"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "total_activation_size_in_kilobytes",
+      "macro_type": "GAUGE",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 345
+      },
+      "source_description": "Total activation size in kilobytes",
+      "declared_dimensions": [],
+      "direct_write_macro_sites": [],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::Status<double>",
+      "reference_status": "no_write_macros_or_symbol_references_found",
+      "export_name_patterns": [
+        "total_activation_size_in_kilobytes"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "active_kv_cache_size_in_kilobytes",
+      "macro_type": "MULTI_HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 348
+      },
+      "source_description": "Active kv cache size in kilobytes per dp rank",
+      "declared_dimensions": [
+        "dp_rank"
+      ],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/scheduler/scheduler_metrics.cpp",
+          "line": 192,
+          "macro": "MULTI_HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::MultiDimension<bvar::LatencyRecorder>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "active_kv_cache_size_in_kilobytes_latency_dp_rank_{dp_rank}",
+        "active_kv_cache_size_in_kilobytes_max_latency_dp_rank_{dp_rank}",
+        "active_kv_cache_size_in_kilobytes_count_dp_rank_{dp_rank}",
+        "active_kv_cache_size_in_kilobytes_qps_dp_rank_{dp_rank}",
+        "active_kv_cache_size_in_kilobytes_latency_dp_rank_{dp_rank}_quantile_{percentile}"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "prefill_active_activation_size_in_kilobytes",
+      "macro_type": "MULTI_HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 351
+      },
+      "source_description": "Active activation size in kilobytes per dp rank during prefill phase",
+      "declared_dimensions": [
+        "dp_rank"
+      ],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/scheduler/scheduler_metrics.cpp",
+          "line": 201,
+          "macro": "MULTI_HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::MultiDimension<bvar::LatencyRecorder>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "prefill_active_activation_size_in_kilobytes_latency_dp_rank_{dp_rank}",
+        "prefill_active_activation_size_in_kilobytes_max_latency_dp_rank_{dp_rank}",
+        "prefill_active_activation_size_in_kilobytes_count_dp_rank_{dp_rank}",
+        "prefill_active_activation_size_in_kilobytes_qps_dp_rank_{dp_rank}",
+        "prefill_active_activation_size_in_kilobytes_latency_dp_rank_{dp_rank}_quantile_{percentile}"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    },
+    {
+      "name": "decode_active_activation_size_in_kilobytes",
+      "macro_type": "MULTI_HISTOGRAM",
+      "definition": {
+        "file": "xllm/core/common/metrics.cpp",
+        "line": 355
+      },
+      "source_description": "Active activation size in kilobytes per dp rank during decode phase",
+      "declared_dimensions": [
+        "dp_rank"
+      ],
+      "direct_write_macro_sites": [
+        {
+          "file": "xllm/core/scheduler/scheduler_metrics.cpp",
+          "line": 197,
+          "macro": "MULTI_HISTOGRAM_OBSERVE"
+        },
+        {
+          "file": "xllm/core/scheduler/scheduler_metrics.cpp",
+          "line": 205,
+          "macro": "MULTI_HISTOGRAM_OBSERVE"
+        }
+      ],
+      "read_macro_sites": [],
+      "explicit_symbol_reference_sites": [],
+      "backing_type": "bvar::MultiDimension<bvar::LatencyRecorder>",
+      "reference_status": "direct_write_macros_found",
+      "export_name_patterns": [
+        "decode_active_activation_size_in_kilobytes_latency_dp_rank_{dp_rank}",
+        "decode_active_activation_size_in_kilobytes_max_latency_dp_rank_{dp_rank}",
+        "decode_active_activation_size_in_kilobytes_count_dp_rank_{dp_rank}",
+        "decode_active_activation_size_in_kilobytes_qps_dp_rank_{dp_rank}",
+        "decode_active_activation_size_in_kilobytes_latency_dp_rank_{dp_rank}_quantile_{percentile}"
+      ],
+      "export_type_in_pinned_fork": "gauge"
+    }
+  ]
+}
